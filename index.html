@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Screen</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <title>My Lists</title>
 </head>
 <body>
-    
+    <nav>
+        <h1>My Lists</h1>
+    </nav>
+    <div class="container">
+        <ul>
+
+        </ul>
+    </div>
+
+    <!-- The box that appears when clicking on "new list" button-->
+    <div class="create-list">
+        <span class="close">&times;</span>
+        <div class="box-content">
+            <input id="new-list" type="text" placeholder="New List" />
+            <button id="add">Add</button>
+            <div id="error">Please add a list name</div>
+        </div>
+    </div>
+
+    <button id="new">New</button>
+    <script src="js/index.js"></script>
 </body>
 </html>
