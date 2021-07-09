@@ -47,7 +47,42 @@ h1 {
   cursor: pointer;
 }
 
+#new {
+  float: right;
+}
+
 #error {
   color: tomato;
   display: none;
+}
+
+ul {
+  list-style: none;
+  background-color: rgb(225, 225, 225);
+  padding: 0;
+}
+
+li {
+  border: 1px solid grey;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+}
+
+.container {
+  border: 1px solid black;
+  max-width: 600px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.number {
+  position: absolute;
+  right: 40px;
+  top: 22px;
+}
+
+.category-name {
+  border: 1px solid black;
 }

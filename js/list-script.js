@@ -1,3 +1,6 @@
+const h1 = document.querySelector('h1');
+const title = document.querySelector('title');
+
 const form = document.querySelector('form');
 
 const ul = document.querySelector('ul');
@@ -8,20 +11,32 @@ const input = document.getElementById('item');
 
 const infoText = document.getElementById('info-text')
 
-let itemsArray = localStorage.getItem('items')
+
+/* Settin title and header */
+
+const queryString = document.location.search;
+
+const params = new URLSearchParams(queryString);
+
+const categoryName = params.get("name");
+
+h1.innerHTML = categoryName;
+title.innerHTML = categoryName;
+
+
+
+let itemsArray = localStorage.getItem(categoryName)
     ?
-    JSON.parse(localStorage.getItem('items'))
+    JSON.parse(localStorage.getItem(categoryName))
     : []
+
+console.log(categoryName);
+console.log(localStorage);
 
 /*localStorage.setItem('items', JSON.stringify(itemsArray));*/
 
-console.log(localStorage);
-
-const data = JSON.parse(localStorage.getItem('items'));
-console.log(data);
-
-if (data) {
-    data.forEach(function(item) {
+if (itemsArray) {
+    itemsArray.forEach(function(item) {
     liMaker(item);
     } )
     } 
@@ -37,9 +52,8 @@ function(event) {
     infoText.style.display = "none";
 
     itemsArray.push(input.value);
-    localStorage.setItem('items', JSON.stringify(itemsArray));
-    console.log(localStorage);
-    console.log(data);
+    localStorage.setItem(categoryName, JSON.stringify(itemsArray));
+   
     
     liMaker(input.value);
                           
@@ -52,8 +66,8 @@ function(event) {
     infoText.style.display = "block";
     localStorage.clear();
     ul.innerHTML = '';
-   console.log(ul.innerHTML);
 
 })
 
+console.log(localStorage);
 

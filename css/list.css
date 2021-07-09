@@ -16,7 +16,6 @@ h1 {
 ul {
   list-style: none;
   background-color: white;
-
   border: 1px solid grey;
   padding: 0;
 }
@@ -35,4 +34,8 @@ li {
 
 button {
   float: right;
+}
+
+#info-text {
+  display: none;
 }

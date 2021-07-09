@@ -9,9 +9,18 @@ const addButton = document.getElementById('add');
 const input = document.getElementById('new-list');
 const error = document.getElementById('error');
 
+let itemsArray = localStorage.getItem('categories')
+    ?
+    JSON.parse(localStorage.getItem('categories'))
+    : []
+
+itemsArray.forEach(function(name) {
+    liMaker(name);
+})
+
 createButton.addEventListener('click',
 function(event) {
-    console.log("hi");
+    
     createList.style.display = "block";
 })
 
@@ -30,8 +39,13 @@ function(event) {
     console.log(input.value.trim().length);
 
     if (input.value.trim().length > 0) {
-        console.log("hello");
+        
         createList.style.display = "none";
+
+        itemsArray.push(input.value);
+        localStorage.setItem('categories',JSON.stringify(itemsArray));
+        console.log(localStorage);
+        console.log(itemsArray);
 
         liMaker(input.value);
 
@@ -43,9 +57,19 @@ function(event) {
     }
 })
 
+
+
 function liMaker(text) {
-    ul.innerHTML += "<a href=list.html>" + "<li>" + text + "</li>" + "</a>";
+    ul.innerHTML += `<a href='list.html?name=${text}'>
+                        <li><p class='category-name'>${text}</p>
+                                <p class='number'>number/number</p> 
+                        </li>
+                     </a>`;
+                    
 }
 
+
 console.log(localStorage);
+console.log(itemsArray);
+console.log(itemsArray[5]);
 
