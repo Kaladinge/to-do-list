@@ -47,6 +47,8 @@ function(event) {
         console.log(localStorage);
         console.log(itemsArray);
 
+   
+
         liMaker(input.value);
 
         input.value = '';
@@ -60,16 +62,25 @@ function(event) {
 
 
 function liMaker(text) {
+
+    let listLength = "0";
+    
+    if (JSON.parse(localStorage.getItem(text))) {
+        listLength = JSON.parse(localStorage.getItem(text)).length;
+        
+    };
+ 
     ul.innerHTML += `<a href='list.html?name=${text}'>
                         <li><p class='category-name'>${text}</p>
-                                <p class='number'>number/number</p> 
+                                <p class='number'>number/${listLength}</p> 
                         </li>
-                     </a>`;
-                    
+                     </a>`;              
 }
 
 
 console.log(localStorage);
 console.log(itemsArray);
 console.log(itemsArray[5]);
+
+console.log(JSON.parse(localStorage.getItem('categories')).length);
 

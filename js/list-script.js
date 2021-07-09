@@ -69,5 +69,5 @@ function(event) {
 
 })
 
-console.log(localStorage);
+console.log(localStorage.length);
 
